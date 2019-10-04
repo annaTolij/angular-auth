@@ -1,0 +1,20 @@
+<igx-card class="container">
+  <form [formGroup]="loginForm" class="" (ngSubmit)="submit()">
+    <igx-input-group>
+      <label igxLabel for="email">Email address</label>
+      <input igxInput name="email" type="email" formControlName="email" />
+    </igx-input-group>
+    <igx-input-group>
+      <input igxInput name="password" type="password" formControlName="password" required="required" />
+      <label igxLabel for="password">Password</label>
+    </igx-input-group>
+    <div style="display: block; text-align: right; margin: 10px 0">
+      <a routerLink="/auth/password-recover">Забыли пароль? Восстановить его</a>
+    </div>
+    <div style="display: block;  margin: 10px auto">
+      <button type="submit" class="button_auth">Войти</button>
+      <button routerLink="/auth/register" class="button_auth">Регистрация</button>
+      <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+    </div>
+  </form>
+</igx-card>

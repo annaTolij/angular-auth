@@ -1,0 +1,50 @@
+<igx-card class="container">
+  <form [formGroup]="registerForm" class="" (ngSubmit)="onSubmit()">
+    <igx-input-group>
+      <input igxInput name="name" type="text" formControlName="name" />
+      <label igxLabel for="name">Enter your name</label>
+    </igx-input-group>
+    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+      <div *ngIf="f.name.errors.required">Name is required</div>
+    </div>
+
+    <igx-input-group>
+      <input igxInput name="login" type="text" formControlName="login" required="required" />
+      <label igxLabel for="login">Enter your login</label>
+    </igx-input-group>
+    <div *ngIf="submitted && f.login.errors" class="invalid-feedback">
+      <div *ngIf="f.login.errors.required">Login is required</div>
+    </div>
+
+    <igx-input-group>
+      <input igxInput name="email" type="email" formControlName="email" />
+      <label igxLabel for="email">Enter your email</label>
+    </igx-input-group>
+    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+      <div *ngIf="f.email.errors.required">Email is required</div>
+      <div *ngIf="f.email.errors.email">Email is not correrct</div>
+    </div>
+
+    <igx-input-group>
+      <input igxInput name="password" type="password" formControlName="password" required="required" />
+      <label igxLabel for="password">Enter your password</label>
+    </igx-input-group>
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+      <div *ngIf="f.password.errors.required">Password is required</div>
+      <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+    </div>
+
+    <igx-input-group>
+      <input igxInput name="confirm" type="password" formControlName="confirm" required="required" />
+      <label igxLabel for="confirm">Confirm your password</label>
+    </igx-input-group>
+    <div *ngIf="submitted && f.confirm.errors" class="invalid-feedback">
+      <div *ngIf="f.confirm.errors.required">Confirm Password is required</div>
+      <div *ngIf="f.confirm.errors.mustMatch">Passwords must match</div>
+    </div>
+    <div style="display: block;  margin: 10px auto; text-align: right;">
+      <button routerLink="/auth/login" class="button_auth">Отмена</button>
+      <button class="button_auth">Регистрация</button>
+    </div>
+  </form>
+</igx-card>
